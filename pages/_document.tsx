@@ -9,8 +9,7 @@ export default function Document() {
           name="description"
           content="Web site created using Next.js"
         />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/logo192.png" />
+        <link rel="icon" href="/logo.svg" />
         <link rel="manifest" href="/manifest.json" />
       </Head>
       <body>
