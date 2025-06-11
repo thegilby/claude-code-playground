@@ -1,0 +1,118 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id          String   @id @default(cuid())
+  email       String   @unique
+  name        String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  clients     Client[]
+  workouts    Workout[]
+}
+
+model Client {
+  id          String   @id @default(cuid())
+  name        String
+  email       String?
+  phone       String?
+  dateOfBirth DateTime?
+  goals       String?
+  notes       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  trainerId   String
+  trainer     User     @relation(fields: [trainerId], references: [id], onDelete: Cascade)
+  
+  workouts    Workout[]
+  measurements Measurement[]
+}
+
+model Exercise {
+  id          String   @id @default(cuid())
+  name        String
+  category    String   // strength, cardio, flexibility, etc.
+  muscleGroup String?
+  description String?
+  instructions String?
+  createdAt   DateTime @default(now())
+  
+  workoutExercises WorkoutExercise[]
+}
+
+model Workout {
+  id          String   @id @default(cuid())
+  name        String?
+  date        DateTime
+  type        String   // in_person, assigned
+  status      String   // scheduled, in_progress, completed, skipped
+  notes       String?
+  totalVolume Float    @default(0)
+  duration    Int?     // minutes
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  clientId    String
+  client      Client   @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  
+  trainerId   String
+  trainer     User     @relation(fields: [trainerId], references: [id], onDelete: Cascade)
+  
+  exercises   WorkoutExercise[]
+}
+
+model WorkoutExercise {
+  id          String   @id @default(cuid())
+  sets        Int
+  reps        Int
+  weight      Float?
+  duration    Int?     // seconds
+  distance    Float?   // meters
+  restTime    Int?     // seconds
+  notes       String?
+  volume      Float    @default(0) // reps * weight for strength exercises
+  
+  workoutId   String
+  workout     Workout  @relation(fields: [workoutId], references: [id], onDelete: Cascade)
+  
+  exerciseId  String
+  exercise    Exercise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
+  
+  @@unique([workoutId, exerciseId])
+}
+
+model Measurement {
+  id             String   @id @default(cuid())
+  date           DateTime
+  weight         Float?   // kg
+  bodyFatPercent Float?   // percentage
+  muscleMass     Float?   // kg
+  bmi            Float?
+  
+  // Body circumferences in cm
+  chest          Float?
+  waist          Float?
+  hips           Float?
+  leftArm        Float?
+  rightArm       Float?
+  leftThigh      Float?
+  rightThigh     Float?
+  neck           Float?
+  
+  notes          String?
+  createdAt      DateTime @default(now())
+  
+  clientId       String
+  client         Client   @relation(fields: [clientId], references: [id], onDelete: Cascade)
+}
