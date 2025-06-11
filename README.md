@@ -1,7 +1,5 @@
 # My React App - Next.js
 
-This project has been successfully migrated from Create React App (CRA) to Next.js, providing improved performance, SEO capabilities, and modern React features.
-
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -97,29 +95,9 @@ pnpm test:watch
 - `npm run test` - Run tests
 - `npm run test:watch` - Run tests in watch mode
 
-## 📊 Performance
-
-The migration to Next.js provides several performance improvements:
-
-- **Faster Time to First Contentful Paint (FCP)**
-- **Improved Largest Contentful Paint (LCP)**
-- **Better Core Web Vitals scores**
-- **Reduced bundle size through code splitting**
-- **Optimized images with automatic WebP/AVIF conversion**
-
 ## 🔗 Useful Links
 
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Next.js TypeScript Guide](https://nextjs.org/docs/basic-features/typescript)
 - [Next.js Deployment](https://nextjs.org/docs/deployment)
 - [Performance Optimization](https://nextjs.org/docs/advanced-features/measuring-performance)
-
-## 📝 Notes
-
-This project was successfully migrated from Create React App to Next.js while maintaining all existing functionality and adding significant performance and SEO improvements.
-
----
-
-## Original CRA Project
-
-The original Create React App is preserved in the `my-react-app/` directory for reference.
