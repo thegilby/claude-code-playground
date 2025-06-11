@@ -70,28 +70,6 @@ pnpm start
 └── package.json       # Dependencies and scripts
 ```
 
-## ✨ Features
-
-### Performance Improvements
-- **Server-Side Rendering (SSR)**: Faster initial page loads
-- **Static Site Generation (SSG)**: Pre-rendered pages for optimal performance
-- **Automatic Code Splitting**: Smaller bundle sizes
-- **Image Optimization**: Built-in `next/image` component with automatic optimization
-- **Font Optimization**: Automatic font loading optimization
-
-### Developer Experience
-- **File-based Routing**: Intuitive routing system based on file structure
-- **TypeScript Support**: First-class TypeScript support out of the box
-- **Hot Reloading**: Fast refresh for better development experience
-- **CSS Modules**: Scoped CSS with CSS Modules support
-- **Absolute Imports**: Clean import paths with `@/` prefix
-
-### SEO & Performance
-- **Better SEO**: Server-side rendering improves search engine indexing
-- **Meta Tag Management**: Built-in Head component for better meta management
-- **Web Vitals**: Built-in performance monitoring
-- **Optimized Images**: Automatic image optimization and lazy loading
-
 ## 🧪 Testing
 
 ```bash
@@ -118,22 +96,6 @@ pnpm test:watch
 - `npm run lint` - Run ESLint
 - `npm run test` - Run tests
 - `npm run test:watch` - Run tests in watch mode
-
-## 🎯 Migration Benefits
-
-### Before (Create React App)
-- Client-side only rendering
-- Single bundle file
-- Basic SEO capabilities
-- Standard React development
-
-### After (Next.js)
-- Server-side rendering & static generation
-- Automatic code splitting
-- Enhanced SEO with meta tags
-- Image and font optimization
-- Better performance metrics
-- Production-ready configuration
 
 ## 📊 Performance
 
